@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import os
 import sys
 import warnings
@@ -11,7 +10,7 @@ class Tree:
             warnings.warn("\n\n*********\n\nNO FILE INPUT\n\n*********\n")
             sys.exit(4)
         if not os.path.exists(sys.argv[1]):
-            warnings.warn("FILE PATH NOT FOUND")
+            warnings.warn("\n\nFILE PATH NOT FOUND\n\n")
             sys.exit(5)
         self.directory_path = "/"
         for x in sys.argv[1].split("/")[:-1]:
@@ -28,9 +27,10 @@ class Tree:
     def get_all_files(self, path: str):
         file_memory = []
         for root, dirs, files in os.walk(path):
-            for file in files:
-                if "venv" not in root and "idea" not in root:
+            if "venv" not in root and "idea" not in root:
+                for file in files:
                     file_memory.append(os.path.join(root, file))
+
         return file_memory
 
     def get_dir_list(self, path: str, rm_list: list):
@@ -41,7 +41,7 @@ class Tree:
         return temp_list
 
     def is_file_done(self, path: str) -> int:
-        for ext in [".mp3", "mp4", ".jpeg", ".jpg", ".png", ".tex", ".db"]:
+        for ext in [".mp3", "mp4", ".jpeg", ".jpg", ".png", ".tex", ".db", ".txt", ".DS_Store"]:
             if path.endswith(ext):
                 return 2
         """
@@ -125,7 +125,8 @@ class Tree:
             dir_contents = self.get_dir_list(new_path, ["venv", ".idea"])
             dir_node = Node(self.print_red_green(path, file), parent=parent)
             for element in dir_contents:
-                self.create_node_tree(new_path, element, dir_node)
+                if not element == ".DS_Store":
+                    self.create_node_tree(new_path, element, dir_node)
         else:
             Node(self.print_red_green(path, file), parent)
 
