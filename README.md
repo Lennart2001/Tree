@@ -17,10 +17,12 @@ The script counts the number of files and directories at each status level and p
 
 ## Installation:
 
+### Linux/MacOS
+
 1. Install the required Python libraries, using pip:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 2. Make the Python script executable:
