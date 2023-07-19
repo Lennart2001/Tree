@@ -53,6 +53,10 @@ Or, to display the directory tree for a specific directory, use:
 treeview /path/to/directory
 ```
 
+### Result:
+<img src="example.png" alt="Examplary Treeview" width="600" height="600">
+
+
 ## Notes:
 The status of a file is determined by its extension and by whether the words 'DONE' or 'PROG' appear in the first line of the file. 
 The status of a directory is determined by the statuses of its contents.
