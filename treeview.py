@@ -10,9 +10,9 @@ IGNORE_FILES = [".mp3", ".mp4", ".jpeg", ".jpg", ".png", ".tex", ".db", ".txt", 
 class Tree:
     def __init__(self):
         if len(sys.argv) < 2:
-            print("\n\n*********\n\nNO FILE INPUT\n\n*********\n")
-            sys.exit(4)
-        self.directory_path = sys.argv[1]
+            self.directory_path = os.getcwd()
+        else:   
+            self.directory_path = sys.argv[1]
         if not os.path.exists(self.directory_path):
             print("\n\nFILE PATH NOT FOUND\n\n")
             sys.exit(5)
