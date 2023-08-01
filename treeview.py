@@ -4,8 +4,8 @@ import os
 import sys
 from anytree import Node, RenderTree
 
-IGNORE_DIRECTORIES = {"venv", ".idea", ".DS_Store", "__pycache__", ".git"}
-IGNORE_FILES = [".mp3", ".mp4", ".jpeg", ".jpg", ".png", ".tex", ".db", ".txt", ".DS_Store"]
+IGNORE_DIRECTORIES = {"venv", ".idea", ".DS_Store", "__pycache__", ".git", ".pytest_cache"}
+IGNORE_FILES = ["__init__.py", ".mp3", ".mp4", ".jpeg", ".jpg", ".png", ".tex", ".db", ".txt", ".sh", ".md", "LICENSE", ".DS_Store", ".gitignore"]
 
 class Tree:
     def __init__(self):
